@@ -19,7 +19,7 @@ class BreweryDBQueries:
     def get_beer_style(self, beer_name):
         try:
             if self.num_queries_today >= 390:
-                raise Exception
+                raise requests.RequestException
 
             request = requests.get('http://api.brewerydb.com/search?key=' + self.key + '&q=' + beer_name + '&type=beer')
             logging.info('The request was fetched successfully!')
